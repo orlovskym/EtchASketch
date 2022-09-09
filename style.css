@@ -8,13 +8,13 @@
     padding: 0px;
     margin: 0px;
     border-style: solid;
-    border-color: red;
+    border-color: gray;
 }
 
 .tile{
     flex-shrink: 0;
     border-style: solid;
-    border-color: aqua;
+    border-color: gray;
     padding: 0px;
     margin: 0px;
     border-width: 1px;
