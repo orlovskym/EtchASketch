@@ -1,6 +1,7 @@
 let container = document.querySelector(`.container`);
 
 function generateGrid(size) {
+    deleteGrid();
     let numSquares = size * size;
     let squareSize = container.clientWidth / size - 2;
     console.log(squareSize);
@@ -29,6 +30,12 @@ function activateSquares() {
                 thisSquare.style.backgroundColor = "white";
             }
         })
+    }
+}
+
+function deleteGrid(){
+    while (container.firstChild){
+        container.removeChild(container.lastChild);
     }
 }
 
