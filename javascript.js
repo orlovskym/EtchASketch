@@ -8,8 +8,8 @@ function generateGrid(size) {
 
     for (i = 0; i < numSquares; i++) {
         let square = document.createElement('div');
-        square.style.height = squareSize+"px";
-        square.style.width = squareSize+"px";
+        square.style.height = squareSize + "px";
+        square.style.width = squareSize + "px";
         square.classList.add("tile");
         square.style.backgroundColor = "white";
         container.appendChild(square);
@@ -19,14 +19,17 @@ function generateGrid(size) {
 
 function activateSquares() {
     let squares = document.querySelectorAll(`.tile`);
-    squares[0].addEventListener('mouseover', () => {
-        if (this.backgroundColor = "white") {
-            this.backgroundColor = "black";
-        } else if (this.backgroundColor = "black") {
-            this.backgroundColor = "white";
-        }
-    })
-    squares[0]
+    for (i = 0; i < squares.length; i++) {
+        let thisSquare=squares[i];
+        thisSquare.addEventListener('mouseover', () => {
+            console.log(thisSquare);
+            if (thisSquare.style.backgroundColor == "white") {
+                thisSquare.style.backgroundColor = "black";
+            } else if (thisSquare.style.backgroundColor == "black") {
+                thisSquare.style.backgroundColor = "white";
+            }
+        })
+    }
 }
 
 generateGrid(16);
