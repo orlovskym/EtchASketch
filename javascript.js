@@ -1,11 +1,10 @@
 let container = document.querySelector(`.container`);
+let newGridButton = document.querySelector(`.button`);
 
 function generateGrid(size) {
     deleteGrid();
     let numSquares = size * size;
     let squareSize = container.clientWidth / size - 2;
-    console.log(squareSize);
-    console.log(numSquares);
 
     for (i = 0; i < numSquares; i++) {
         let square = document.createElement('div');
@@ -23,7 +22,6 @@ function activateSquares() {
     for (i = 0; i < squares.length; i++) {
         let thisSquare=squares[i];
         thisSquare.addEventListener('mouseover', () => {
-            console.log(thisSquare);
             if (thisSquare.style.backgroundColor == "white") {
                 thisSquare.style.backgroundColor = "black";
             } else if (thisSquare.style.backgroundColor == "black") {
@@ -39,4 +37,16 @@ function deleteGrid(){
     }
 }
 
+function getSize(){
+    while (true){
+        let size = prompt("Enter the size of the desired grid (maximum 100): ", 16);
+        if (size < 101 && size > 0){
+            return size;
+        }
+    }
+}
+
 generateGrid(16);
+newGridButton.addEventListener('click', () => {
+    generateGrid(getSize());
+})
